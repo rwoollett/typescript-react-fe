@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
-    require('postcss-preset-env')
-    ({
+    "postcss-preset-env",
+    {
         browsers: 'last 1 versions',
         autoprefixer: {
           flexbox: 'no-2009',
@@ -10,6 +10,6 @@ module.exports = {
         features: {
           'custom-properties': false,
         },
-    }),
+    },
   ],
 };
