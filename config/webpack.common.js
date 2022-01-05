@@ -10,7 +10,7 @@ module.exports = {
       app: [path.resolve(__dirname, '../src/bootstrap.tsx')]
     },
     resolve: {
-      extensions: ['.ts', '.tsx', '.js'],
+      extensions: ['.ts', '.tsx', '.js', ".scss"],
       alias: {
         components: path.resolve(__dirname, './src/components/')
       }
@@ -22,8 +22,20 @@ module.exports = {
           type: 'asset/resource'
   
         },
+        { test: /\.tsx?$/, 
+          exclude: /node_modules/,
+          use: [
+            { 
+              loader: 'ts-loader', 
+              options: { 
+                transpileOnly: true
+              }
+            }
+          ]
+        },
+        { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
         {
-          test: /\.tsx?$/,
+          test: /\.js$/,
           exclude: /node_modules/,
           use: ['babel-loader'],
         },

@@ -31,13 +31,6 @@ const devConfig = {
     watchFiles: { paths: '/src/**' },
   },
   module: {
-    // Use babel/preset typescript to do compiling with no type check (webpack.common)
-    // rules: [
-    //   { test: /\.tsx?$/, 
-    //     exclude: /node_modules/,
-    //     use: [{ loader: 'ts-loader', options: { transpileOnly: false}}]
-    //   }
-    // ]
   },
   plugins: [
   ]

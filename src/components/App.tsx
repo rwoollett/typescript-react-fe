@@ -16,6 +16,7 @@ interface AppProps {
   //  done?: boolean;
 }
 
+// PropertiesL AppProps and state is {}(unknown)
 class App extends React.Component<AppProps, unknown> {
 
   // static defaultProps: Partial<AppProps> = { 
@@ -26,11 +27,12 @@ class App extends React.Component<AppProps, unknown> {
     super(props);
   }
 
-  render() {
+  render(): JSX.Element {
  
     return (
       <React.Fragment>
         <Router>
+          <h1>{this.props.title}</h1>
           <Hello compiler={"TS"} framework={"React"} />
           <Switch>
             <Route exact path="/" render={() => <HelloWithHooks />} />
@@ -38,7 +40,7 @@ class App extends React.Component<AppProps, unknown> {
           </Switch>
           <div className={style.footer}>
             <div className={style.container}>
-               <p>The Javascript/ Typescript laboratories. 
+               <p>The cJavascript/ Typescript laboratories. 
                 Contact: Programming Laboratory.</p>
             </div>
           </div>

@@ -6,7 +6,7 @@ export interface HelloProps {
 }
 
 // 'HelloProps' describes the shape of props.
-// State is never set so we use the '{}' type.
+// State is never set so we use the '{}'(unknown) type.
 export default class Hello extends React.Component<HelloProps, unknown> {
   render(): JSX.Element  {
     return (
