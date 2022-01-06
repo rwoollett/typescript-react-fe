@@ -15,8 +15,6 @@ const devConfig = {
   devServer: {
     host: env.devServer.host || 'localhost',
     port: env.devServer.port || 3000,
-
-    //contentBase: path.resolve(__dirname, '../dist'),
     hot: true,
     proxy: {
         '/api': {
@@ -24,13 +22,10 @@ const devConfig = {
         secure: false
         }
     },
-    //publicPath: '/',
-    //historyApiFallback: false,
     historyApiFallback: {
       disableDotRule: true,
       index: '/index.html',
     },
-    watchFiles: { paths: '/src/**' },
   },
   module: {
   },

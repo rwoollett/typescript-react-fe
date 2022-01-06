@@ -12,9 +12,9 @@ module.exports = {
     resolve: {
       extensions: ['.ts', '.tsx', '.js', ".scss"],
       alias: {
-        components: path.resolve(__dirname, './src/components/')
+        components: path.resolve(__dirname, '../src/components/')
       },
-      modules: ["node_modules"]
+      modules: ["../node_modules"]
     },
     devtool: "source-map",
     module: {
@@ -43,12 +43,8 @@ module.exports = {
         },
         { 
           test: /\.s?css$/,
-          //include: path.join(__dirname, '../src/scss'),
           use: [
             MiniCssExtractPlugin.loader, 
-            // { 
-            //   loader: '@teamsupercell/typings-for-css-modules-loader'
-            // },
             { 
               loader: 'css-loader',
               options: { 
