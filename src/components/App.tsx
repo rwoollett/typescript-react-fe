@@ -1,28 +1,17 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
-import Hello from "./Hello";
-import HelloWithHooks from "./HelloWithHooks";
 import style from '../scss/labshome.scss';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from 'react-router-dom';
-
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import About from '../pages/About';
+import Home from '../pages/Home';
+import ClientDetail from '../pages/ClientDetail';
 
 interface AppProps {
   title: string;
-  //  done?: boolean;
 }
 
-// PropertiesL AppProps and state is {}(unknown)
+// Properties AppProps and state is {}(unknown)
 class App extends React.Component<AppProps, unknown> {
-
-  // static defaultProps: Partial<AppProps> = { 
-  //   done: false,
-  // }
-
   constructor(props: AppProps) {
     super(props);
   }
@@ -30,22 +19,28 @@ class App extends React.Component<AppProps, unknown> {
   render(): JSX.Element {
  
     return (
-      <React.Fragment>
-        <Router>
-          <h1>{this.props.title}</h1>
-          <Hello compiler={"TS"} framework={"React"} />
-          <Switch>
-            <Route exact path="/" render={() => <HelloWithHooks />} />
-            <Redirect to="/" />
-          </Switch>
-          <div className={style.footer}>
-            <div className={style.container}>
-               <p>The cJavascript/ Typescript laboratories. 
-                Contact: Programming Laboratory.</p>
-            </div>
-          </div>
-        </Router>
-      </React.Fragment>
+      <BrowserRouter>
+        <div className={style.container}>
+          {this.props.title}
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+        </div>
+
+        <Switch>
+          <Route path="/" exact>
+            <Home/>
+          </Route>
+
+          <Route path="/about" exact>
+            <About/>
+          </Route>
+
+          <Route path="/client/:id" exact>
+            <ClientDetail/>
+          </Route>
+
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
