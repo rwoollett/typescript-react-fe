@@ -41,15 +41,18 @@ module.exports = {
         },
         { 
           test: /\.s?css$/,
-          include: path.join(__dirname, '../src/scss'),
+          //include: path.join(__dirname, '../src/scss'),
           use: [
             MiniCssExtractPlugin.loader, 
-            { 
-              loader: '@teamsupercell/typings-for-css-modules-loader'
-            },
+            // { 
+            //   loader: '@teamsupercell/typings-for-css-modules-loader'
+            // },
             { 
               loader: 'css-loader',
-              options: { modules: true }
+              options: { 
+                importLoaders: 2,
+                //modules: false // sliding panel need this false
+              }
             },
             'postcss-loader',
             'sass-loader'

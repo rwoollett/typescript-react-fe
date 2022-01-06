@@ -1,6 +1,5 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
-import style from '../scss/labshome.scss';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import About from '../pages/About';
 import Home from '../pages/Home';
@@ -20,10 +19,11 @@ class App extends React.Component<AppProps, unknown> {
  
     return (
       <BrowserRouter>
-        <div className={style.container}>
+        <div className='container'>
           {this.props.title}
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
+          <Link to="/client/ss">A client detail</Link>
         </div>
 
         <Switch>

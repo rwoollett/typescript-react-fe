@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import SlidingPane from "react-sliding-pane";
+import "react-sliding-pane/dist/react-sliding-pane.css";
 
 interface WorkUpdate {
   date: string;
@@ -30,6 +32,7 @@ const data: WorkUpdate[] = [
 
 const ClientDetail = (): JSX.Element => {
   const { id }: { id: string } = useParams();
+  const [isPaneOpen, setIsPaneOpen ] = useState(false);
   const updateRenderer = data.map((dateUpdate) =>
   (<div key={dateUpdate.date}>
     <div>
@@ -39,7 +42,26 @@ const ClientDetail = (): JSX.Element => {
     </div>
   </div>));
 
+  const formPane = (
+    <SlidingPane
+    className="some-custom-class"
+    overlayClassName="some-custom-overlay-class"
+    isOpen={isPaneOpen}
+    title="Hey, it is optional pane title.  I can be React component too."
+    subtitle="Optional subtitle."
+    onRequestClose={() => {
+      // triggered on "<" on left top click or on outside click
+      setIsPaneOpen(!isPaneOpen);
+    }}
+  >
+    <div>And I am pane content. BTW, what rocks?</div>
+    <br />
+  </SlidingPane>
+  );
+
   return <div>
+    {formPane}
+    <a onClick={() => setIsPaneOpen(true)}>New Update</a>
     {updateRenderer}
   </div>;
 };
