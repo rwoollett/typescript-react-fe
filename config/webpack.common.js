@@ -13,8 +13,10 @@ module.exports = {
       extensions: ['.ts', '.tsx', '.js', ".scss"],
       alias: {
         components: path.resolve(__dirname, './src/components/')
-      }
+      },
+      modules: ["node_modules"]
     },
+    devtool: "source-map",
     module: {
       rules: [
         {

@@ -25,7 +25,9 @@ const devConfig = {
         }
     },
     //publicPath: '/',
+    //historyApiFallback: false,
     historyApiFallback: {
+      disableDotRule: true,
       index: '/index.html',
     },
     watchFiles: { paths: '/src/**' },
