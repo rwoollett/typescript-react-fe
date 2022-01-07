@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
@@ -33,7 +33,13 @@ const data: WorkUpdate[] = [
 const ClientDetail = (): JSX.Element => {
   const { id }: { id: string } = useParams();
   const [isPaneOpen, setIsPaneOpen ] = useState(false);
-  const updateRenderer = data.map((dateUpdate) =>
+  const [updates, setUpdates ] = useState<WorkUpdate[]>([]);
+
+  useEffect(() => {
+    setUpdates(data);
+  }, []);
+
+  const updateRenderer = updates.map((dateUpdate) =>
   (<div key={dateUpdate.date}>
     <div>
       {dateUpdate.updates.map((update, i) => (
@@ -44,8 +50,8 @@ const ClientDetail = (): JSX.Element => {
 
   const formPane = (
     <SlidingPane
-    className="some-custom-class"
-    overlayClassName="some-custom-overlay-class"
+    //className=""
+    //overlayClassName="container"
     isOpen={isPaneOpen}
     title="Hey, it is optional pane title.  I can be React component too."
     subtitle="Optional subtitle."
@@ -54,8 +60,19 @@ const ClientDetail = (): JSX.Element => {
       setIsPaneOpen(!isPaneOpen);
     }}
   >
-    <div>And I am pane content. BTW, what rocks?</div>
+    <div className="popular-labs">
+    <div className="card top">
+    <h3>A title post</h3>
+    <p>And I am pane content. BTW, what rocks?</p>
     <br />
+    </div>
+    <div className="card next">
+    <h3>A title post</h3>
+    <p>And I am pane content. BTW, what rocks?</p>
+    <br />
+    </div>
+   
+    </div>
   </SlidingPane>
   );
 
