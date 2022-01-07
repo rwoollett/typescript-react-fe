@@ -3,7 +3,6 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-//const { allowedNodeEnvironmentFlags } = require('process');
 
 module.exports = {
     entry: {
@@ -59,7 +58,7 @@ module.exports = {
       ],
     },
     plugins: [
-      new CleanWebpackPlugin({ dry: false }),
+      new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
         filename: "[name].css",
         chunkFilename: "[id].css",
