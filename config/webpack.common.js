@@ -6,14 +6,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-      app: [path.resolve(__dirname, '../src/bootstrap.tsx')]
+      app: ['./src/bootstrap.tsx']
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js', ".scss"],
       alias: {
-        components: path.resolve(__dirname, '../src/components/')
+        components:  path.resolve(__dirname, '../src/components/')
       },
-      modules: ["../node_modules"]
+      modules: ["node_modules"]
     },
     devtool: "source-map",
     module: {

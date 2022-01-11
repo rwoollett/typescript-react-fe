@@ -10,10 +10,10 @@
     "removeComments": true,             /* Do not emit comments to output. */
     "strict": true,                     /* Enable all strict type-checking options. */
     "noImplicitAny": true,              /* Raise error on expressions and declarations with an implied 'any' type. */
-    "baseUrl": "./src",                 /* Base directory to resolve non-absolute module names. */
+    "baseUrl": "./",                 /* Base directory to resolve non-absolute module names. */
     "paths": {
        "components/*": [
-         "./components/*"
+         "./src/components/*"
        ]
      },                                  /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     "skipLibCheck": true,
